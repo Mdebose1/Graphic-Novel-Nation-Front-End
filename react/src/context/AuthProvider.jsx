@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
                 signInWithPopup(auth, provider)
                     .then(result => {
                         console.log("You have been logged in.");
-                    });
+                    }); 
                 break;
 
             case 'password':
