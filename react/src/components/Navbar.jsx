@@ -1,7 +1,12 @@
+import { updateCurrentUser} from 'firebase/auth'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth, AuthContext } from '../context/AuthProvider'
 
 export const Navbar = () => {
+
+    const { signOff, currentUser} = useAuth()
+
     return (
         <nav className="navbar navbar-expand-sm navbar-warning bg-warning">
             <Link className="navbar-brand" to="/">Graphic Novel Nation</Link>
@@ -33,13 +38,22 @@ export const Navbar = () => {
                 </ul>
             </div>
             <div className="nav-item active">
-            <ul>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/views/signin">Sign In</Link>
-                </li>
-            </ul>
+                <ul className='navbar-nav ml-auto'>
+                    {
+                        !currentUser.loggedIn ?
+                            (
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/signin">Sign In</Link>
+                                    </li>
+                            ) :
+                            (
+                                    <li className="nav-item">
+                                        <Link onClick={signOff} className="nav-link" to="/signin">Sign Out</Link>
+                                    </li>
+                            )
+                    }
+                </ul>
             </div>
-
         </nav>
     )
 }

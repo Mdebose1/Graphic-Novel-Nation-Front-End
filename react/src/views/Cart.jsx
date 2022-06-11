@@ -34,7 +34,7 @@ export const Cart = () => {
                         </div>
                         <div className="col-4 col-sm-4 col-md-4">
                             <div className='quantity'>
-                            <input type="number" step="1" max="99" min="1" defaulValue="1"  title="Qty" className='qty' size="4" />
+                            <input type="number" step="1" max="99" min="1" defaultValue="1"  title="Qty" className='qty' size="4" />
                             </div>
                         </div>
                         <div className="col-2">

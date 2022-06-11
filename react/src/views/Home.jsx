@@ -1,10 +1,15 @@
 import React from 'react'
+import { AuthContext, useAuth } from '../context/AuthProvider'
+import { firebase } from '../firebase/firebaseConfig'
+import { collection, getDocs } from 'firebase/firestore'
 
 export const Home = () => {
+
+    const { currentUser } = useAuth( AuthContext )
     return (
         <div className="row">
             <div className="col-md-12">
-                <h1>Hello, Lana!</h1>
+                <h1>Hello, { currentUser.name }!</h1>
 
                 <form action="">
                     <div className="row">
