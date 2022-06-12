@@ -46,15 +46,13 @@ export const AuthProvider = ({ children }) => {
             case 'password':
                 signInWithEmailAndPassword( auth, email.value, password.value )
                     .then((userCredential) => {
-                        // Signed in 
+                        const user = userCredential.user;
 
                         console.log("You have been logged in.");
-                        // ...
                     })
-                    .catch( ( error ) => {
-                    //     const errorCode = error.code;
-                    //     const errorMessage = error.message;
-                        console.error(error);
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
                     });
                 break;
             default:
