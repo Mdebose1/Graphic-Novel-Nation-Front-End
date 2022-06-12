@@ -7,6 +7,7 @@ export const SignIn = () => {
 
     const handleSignIn = ( e, providerOption ) => {
         e.preventDefault();
+
         const { email, password } = e.target;
         signIn( { email, password }, providerOption );
     };
@@ -28,17 +29,17 @@ export const SignIn = () => {
     }
 
     return (
-        <>
+        
             <div className="row">
                 <div className="col-md-6">
                     <h2>Sign In</h2>
                     <hr />
-                    <form onSubmit={ (e) =>  handleSignIn(e, 'password') }>
+                    <form onSubmit={ ( e ) =>  handleSignIn( e, 'password' ) }>
                         <div className="form-group">
                             <input type="email" className="form-control" name="email" aria-describedby="emailHelpId" placeholder="Enter Your Email" />
                         </div>
                         <div className="form-group">
-                            <input type="password" className="form-control" name="Password" placeholder="Enter Your Password" />
+                            <input type="password" className="form-control" name="password" placeholder="Enter Your Password" />
                         </div>
                         <div className='form-group'>
                             <div className="form-check">
@@ -53,10 +54,7 @@ export const SignIn = () => {
                         </div>
                         <div className='form-group'>
                             <input onClick={ (e) => handleSignIn (e, 'google')} type="submit" value="Sign In with Google" className='btn btn-success' />
-                        </div>
-                        <div className='form-group'>
-                        <button type="submit" className="btn btn-primary btn-block mt-3" value="Sign In"></button>
-                        </div>
+                        </div> 
                     </form>
                 </div>
                 <div className="col-md-6">
@@ -77,18 +75,19 @@ export const SignIn = () => {
                             <input type="email" className="form-control" name="email" aria-describedby="emailHelpId" placeholder="Enter Your Email" />
                         </div>
                         <div className="form-group">
-                            <label for=""></label>
                             <input type="password" className="form-control" name="password" placeholder="Enter Your Password" />
                         </div>
                         <div className="form-group">
-                            <label for=""></label>
                             <input type="password" className="form-control" name="confirm_password" placeholder="Confirm Password" />
                         </div>
-                    <button type="submit" className="btn btn-primary btn-block" value="Register"></button>
+                    <input type="submit" className="btn btn-primary" value="Register" />
                     </form>
                 </div>
             </div>
 
-        </>
+        
     )
 }
+
+
+

@@ -21,10 +21,8 @@ export const AuthProvider = ({ children }) => {
         if (formData === formData.confirmPassword) {
             createUserWithEmailAndPassword(auth, formData.email, formData.password)
                 .then((userCredential) => {
-                    // Signed in 
                     const user = userCredential.user;
                     console.log('Registration Successful!')
-                    // ...
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -34,12 +32,12 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const signIn = (formData, providerOption) => {
+    const signIn = ( formData, providerOption ) => {
         const { email, password } = formData;
 
-        switch (providerOption) {
+        switch ( providerOption ) {
             case 'google':
-                signInWithPopup(auth, provider)
+                signInWithPopup( auth, provider )
                     .then(result => {
                         console.log("You have been logged in.");
                     }); 
@@ -49,14 +47,14 @@ export const AuthProvider = ({ children }) => {
                 signInWithEmailAndPassword( auth, email.value, password.value )
                     .then((userCredential) => {
                         // Signed in 
-                        const user = userCredential.user;
+
                         console.log("You have been logged in.");
                         // ...
                     })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        console.error(error)
+                    .catch( ( error ) => {
+                    //     const errorCode = error.code;
+                    //     const errorMessage = error.message;
+                        console.error(error);
                     });
                 break;
             default:
@@ -87,7 +85,7 @@ export const AuthProvider = ({ children }) => {
                 })
             }
         })
-    })
+    } , [ auth] );
 
     const context = {
         currentUser, signIn, signOff, register
